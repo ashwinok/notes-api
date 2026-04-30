@@ -1,0 +1,31 @@
+services:
+  db:
+    image: postgres:16
+    container_name: notes-pg
+    environment:
+      POSTGRES_USER: notes
+      POSTGRES_PASSWORD: notes
+      POSTGRES_DB: notes
+    ports:
+      - "5432:5432"
+    volumes:
+      - notes-pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U notes -d notes"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  app:
+    build: .
+    container_name: notes-app
+    environment:
+      DATABASE_URL: postgresql://notes:notes@db:5432/notes
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  notes-pg-data:
