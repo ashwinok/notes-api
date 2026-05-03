@@ -19,7 +19,7 @@ variable "project" {
 variable "ssh_public_key_path" {
   description = "Path to your local SSH public key"
   type        = string
-  default     = "~/.ssh/id_ed25519.pub"
+  default     = "~/.ssh/notes-api-terraform.pub"
 }
 
 variable "my_ip_cidr" {

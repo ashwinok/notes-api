@@ -5,7 +5,7 @@ output "instance_public_ip" {
 
 output "ssh_command" {
   description = "Convenience command to SSH into the instance"
-  value       = "ssh ubuntu@${aws_instance.this.public_ip}"
+  value       = "ssh -i ~/.ssh/notes-api-terraform ubuntu@${aws_instance.this.public_ip}"
 }
 
 output "app_url" {
