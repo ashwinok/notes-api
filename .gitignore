@@ -10,3 +10,11 @@ __pycache__/
 .vscode/
 *.egg-info/
 .pytest_cache/
+
+# Terraform
+**/.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+!*.tfvars.example
+crash.log
