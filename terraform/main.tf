@@ -72,6 +72,9 @@ resource "aws_instance" "this" {
   key_name               = aws_key_pair.this.key_name
   vpc_security_group_ids = [aws_security_group.this.id]
 
+  user_data                   = file("${path.module}/user_data.sh")
+  user_data_replace_on_change = true
+
   tags = {
     Name    = "${var.project}-ec2"
     Project = var.project
