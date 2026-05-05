@@ -17,7 +17,7 @@ services:
       retries: 10
 
   app:
-    build: .
+    image: ghcr.io/ashwinok/notes-api:latest
     container_name: notes-app
     environment:
       DATABASE_URL: postgresql://notes:notes@db:5432/notes

@@ -68,5 +68,6 @@ jobs:
             set -e
             cd ~/notes-api
             git pull
-            docker compose up -d --build
+            docker compose pull
+            docker compose up -d
             docker image prune -f

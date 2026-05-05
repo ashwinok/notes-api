@@ -12,6 +12,7 @@ systemctl enable --now docker
 # Clone the app repo into ubuntu's home
 sudo -u ubuntu git clone https://github.com/ashwinok/notes-api.git /home/ubuntu/notes-api
 
-# Bring the stack up
+# Bring the stack up using the pre-built image from GHCR
 cd /home/ubuntu/notes-api
-docker compose up -d --build
+docker compose pull
+docker compose up -d
