@@ -26,7 +26,7 @@ def on_startup():
 
 @app.get("/health")
 def health():
-    return {"status": "ok", "version": "v3"}
+    return {"status": "ok", "version": "v4"}
 
 
 @app.post("/notes", response_model=NoteOut)
